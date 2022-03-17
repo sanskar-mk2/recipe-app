@@ -1,0 +1,45 @@
+:root {
+    --c0: #000000;
+    --c1: #3b8ae9;
+    --c2: #98c0f3;
+    --c3: #ffffff
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.main-div {
+    display: flex;
+    background-color: var(--c2);
+    height: 100vh;
+    width: 100vw;
+}
+
+#side-bar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    background-color: var(--c0);
+    display: flex;
+    flex-direction: column;
+}
+.recipe-names {
+    padding: 1em;
+    background-color: var(--c2);
+}
+
+.recipe-names:hover {
+    background-color: var(--c3);
+}
+
+#recipe{
+    margin-left:200px;
+    padding : 0px 10px;
+    background-color: var(--c1);
+}
