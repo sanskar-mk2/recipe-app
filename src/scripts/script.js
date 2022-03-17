@@ -7,14 +7,43 @@ const populate_list = () => {
         el.id = `recipe-${String(i).padStart(3, "0")}`;
         el.classList.add("recipe-names");
         el.innerHTML = data[i].name;
-        el.addEventListener("click", change_recipe);
+        el.addEventListener("click", trigger_recipe);
         document.getElementById("side-bar").appendChild(el);
     }
+    change_recipe(0);
 };
 
-const change_recipe = (ev) => {
-    let idx = parseInt(ev.target.id.split("-")[1]);
-    for (const [k, v] of Object.entries(data[idx])) {
-        document.getElementById(k).innerHTML = v;
+const change_recipe = (idx) => {
+    document.getElementById("name").innerHTML = data[idx].name;
+    document.getElementById("rarity").innerHTML = `${"⭐".repeat(
+        parseInt(data[idx].rarity)
+    )} |   `;
+    let foodtype = document.getElementById("foodtype");
+    foodtype.innerHTML = `${data[idx].foodtype}`;
+    if(data[idx].foodtype == "NORMAL"){
+        foodtype.style.backgroundColor = "var(--c5)";
+    } else {
+        foodtype.style.backgroundColor = "var(--c6)";
     }
+    document.getElementById("foodfilter").innerHTML = data[idx].foodfilter;
+    document.getElementById("foodcategory").innerHTML = data[idx].foodcategory;
+    document.getElementById("effect").innerHTML = data[idx].effect;
+    document.getElementById("description").innerHTML = data[idx].description;
+    document.getElementById("basedish").innerHTML =
+        data[idx].basedish || "None";
+    document.getElementById("character").innerHTML =
+        data[idx].character || "None";
+    let ingredients = new String();
+    for (let i = 0; i < data[idx].ingredients.length; i++) {
+        ingredients = `${ingredients} ${data[idx].ingredients[i].name} (${data[idx].ingredients[i].count}) +`;
+    }
+    document.getElementById("ingredients").innerHTML = ingredients.substring(0, ingredients.length-1);
+};
+
+const trigger_recipe = (ev) => {
+    let idx = parseInt(ev.target.id.split("-")[1]);
+    change_recipe(idx);
+    // for (const [k, v] of Object.entries(data[idx])) {
+    //     document.getElementById(k).innerHTML = v;
+    // }
 };

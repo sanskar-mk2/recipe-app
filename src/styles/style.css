@@ -1,45 +1,106 @@
 :root {
-    --c0: #000000;
-    --c1: #3b8ae9;
-    --c2: #98c0f3;
-    --c3: #ffffff
+    --c0: #f5eec2; 
+    --c1: #bfce5c;
+    --c2: #493f33;
+    --c3: #5ea08d;
+    --c4: #c0beb6; 
+    --c5: #948cb0; /* food type : normal to this one ( recommended :) )*/
+    --c6: #fea94f; /* food type : specialty to this one ( recommended :) )*/
+    --c7: #c53d22; 
 }
 
 html, body {
     padding: 0;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: var(--c0);
+}
+
+#branding {
+    background-color: var(--c1);
+    width: 100vw;
+    height: 5vh;
 }
 
 .main-div {
-    display: flex;
     background-color: var(--c2);
-    height: 100vh;
-    width: 100vw;
+
 }
 
 #side-bar {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
+    width : 20vh;
+    background-color: var(--c3);
+    height: 95vh;
     overflow-x: hidden;
-    background-color: var(--c0);
-    display: flex;
-    flex-direction: column;
 }
+
+
+p {
+    margin-top: 0.2em;
+    margin-bottom: 2em;
+}
+
+
+
+
+
+
 .recipe-names {
     padding: 1em;
-    background-color: var(--c2);
+    /* background-color: var(--c2); */
 }
 
 .recipe-names:hover {
     background-color: var(--c3);
 }
 
-#recipe{
-    margin-left:200px;
-    padding : 0px 10px;
+#recipe {
+    height: 500px;
+    width: 100%;
+    /* background-color: var(--c3); */
+}
+
+.heading {
+    max-width: 100%;
     background-color: var(--c1);
+    color: var(--c3);
+    font-size: 2em;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+.content {
+    padding: 0.5em 1em;
+}
+
+.sameline {
+    padding-top: 1em;
+}
+
+.sameline p {
+    display: inline;
+
+}
+
+#rarity {
+    font-size: 1.5em;
+}
+
+#foodtype {
+    background-color: var(--c6);
+    padding: 0.5em;
+    border-radius: 100px;
+}
+
+.titles {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.divide {
+    margin: 2em 0em;
 }
