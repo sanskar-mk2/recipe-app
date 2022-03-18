@@ -1,12 +1,14 @@
 :root {
-    --c0: #f5eec2; 
+    --c0: #f5eec2;
     --c1: #bfce5c;
     --c2: #493f33;
     --c3: #5ea08d;
-    --c4: #c0beb6; 
-    --c5: #948cb0; /* food type : normal to this one ( recommended :) )*/
-    --c6: #fea94f; /* food type : specialty to this one ( recommended :) )*/
-    --c7: #c53d22; 
+    --c4: #c0beb6;
+    --c5: #948cb0;
+    /* food type : normal to this one ( recommended :) )*/
+    --c6: #fea94f;
+    /* food type : specialty to this one ( recommended :) )*/
+    --c7: #c53d22;
 }
 
 html, body {
@@ -22,55 +24,69 @@ html, body {
 }
 
 #branding {
+    min-height: 10vh;
+    max-width: 100%;
     background-color: var(--c1);
-    width: 100vw;
-    height: 5vh;
+    color: var(--c0);
+    font-size: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#branding a {
+    display: none;
+}
+
+#branding p {
+    height:100%;
+    margin:0;
+    /* padding: 15px 15px 18px 15px; */
+    /* padding: 0.5em 1em 0.5em 1em; */
 }
 
 .main-div {
     background-color: var(--c2);
-
+    display: flex;
+    min-height: 90vh;
 }
 
 #side-bar {
-    width : 20vh;
+    resize: horizontal;
+    width: 20vw;
     background-color: var(--c3);
-    height: 95vh;
+    height: 90vh;
     overflow-x: hidden;
 }
 
+.recipe-names:hover {
+    background-color: var(--c4);
+}
 
-p {
+
+#recipe {
+    width: 100%;
+    background-color: var(--c4);
+}
+
+.heading {
+    max-width: 100%;
+    background-color: var(--c5);
+    color: var(--c0);
+    font-size: 2em;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+
+div.content p {
     margin-top: 0.2em;
     margin-bottom: 2em;
 }
 
 
-
-
-
-
 .recipe-names {
     padding: 1em;
     /* background-color: var(--c2); */
-}
-
-.recipe-names:hover {
-    background-color: var(--c3);
-}
-
-#recipe {
-    height: 500px;
-    width: 100%;
-    /* background-color: var(--c3); */
-}
-
-.heading {
-    max-width: 100%;
-    background-color: var(--c1);
-    color: var(--c3);
-    font-size: 2em;
-    padding: 0.5em 1em 0.5em 1em;
 }
 
 .content {
@@ -103,4 +119,49 @@ p {
 
 .divide {
     margin: 2em 0em;
+}
+
+@media screen and (max-width: 700px) {
+
+    /*Do max width 700*/
+    #side-bar {
+        z-index:0;
+        width: 100vw;
+        position: fixed;
+        padding-top: 10vh;
+        /* min-height: 90vh; */
+    }
+
+    .hide {
+        display: none;
+    }
+
+    #branding {
+        z-index: 2;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 10vh;
+        /* margin-top : 10vh; */
+    }
+
+    div.main-div {
+        min-height : 90vh;
+        padding-top: 10vh;
+    }
+
+    #branding p, #branding a {
+        /* padding: 18px 23px; */
+        display: unset;
+        box-sizing: border-box;
+        background-color: var(--c1);
+        /* height: 100%; */
+    }
+
+    #branding a:hover {
+        background-color: var(--c3);
+
+    }
+
 }
